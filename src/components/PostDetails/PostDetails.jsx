@@ -1,12 +1,20 @@
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 
 const PostDetails = () => {
   const post = useLoaderData();
-  return <div>
-    <h1>Post Details</h1>
-    <h2>{post.title}</h2>
-    <p>{post.body}</p>
-  </div>;
+  const navigate = useNavigate();
+  const handleGoBack = () =>{
+    navigate(-1)
+
+  }
+  return (
+    <div>
+      <h1>Post Details</h1>
+      <h2>{post.title}</h2>
+      <p>{post.body}</p>
+      <button onClick={handleGoBack}>Go Back</button>
+    </div>
+  );
 };
 
 export default PostDetails;
